@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 7,
+  "summary": "Build an NGO-related website for “डिजिटल भारत एकता संगठन” with provided Hindi welcome message, mission statement, goals, and values.",
+  "architectural_notes": [],
+  "known_issues": [
+    "Production deployment domain validation error when using Hindi/Devanagari characters in domain name (must be 5–50 chars, only letters/numbers/hyphens)."
+  ],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-responsive-ngo-website-single-page-or-simple-multi-section-layout-for-digital-bharat-ekta-sangathan-with-clear-navigation-to-key-sections-welcome-mission-what-we-do-goal-values-and-contact",
+      "title": "Create a responsive NGO website (single-page or simple multi-section layout) for “Digital Bharat Ekta Sangathan (डिजिटल भारत एकता संगठन)” with clear navigation to key sections: Welcome, Mission/What We Do, Goal, Values, and Contact.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-the-user-provided-hindi-content-verbatim-in-the-welcome-mission-area-including-the-quote-description-of-support-beyond-money-the-goal-1-00-000-and-the-values-plus-the-closing-line",
+      "title": "Display the user-provided Hindi content verbatim in the Welcome/Mission area, including the quote, description of support beyond money, the goal “1,00,000 ईमानदार साथी”, and the values “एकता • पारदर्शिता • मानवता • न्याय”, plus the closing line “एकता से सशक्त भारत”.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-coherent-distinctive-visual-theme-appropriate-for-an-ngo-avoid-blue-purple-as-the-primary-palette-define-consistent-typography-spacing-section-backgrounds-and-a-calm-trustworthy-color-system-across-the-entire-site",
+      "title": "Apply a coherent, distinctive visual theme appropriate for an NGO (avoid blue/purple as the primary palette): define consistent typography, spacing, section backgrounds, and a calm, trustworthy color system across the entire site.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-contact-section-with-a-simple-contact-form-ui-name-email-phone-message-and-clear-disclaimer-that-submissions-are-not-yet-delivered-no-backend-integration-plus-visible-organization-name-in-the-footer",
+      "title": "Add a Contact section with a simple contact form UI (name, email/phone, message) and clear disclaimer that submissions are not yet delivered (no backend integration), plus visible organization name in the footer.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-images-to-enhance-the-site-s-presentation-and-render-them-from-frontend-public-assets-generated-no-backend-image-serving",
+      "title": "Add generated static images to enhance the site’s presentation and render them from frontend/public/assets/generated (no backend image serving).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-new-dedicated-page-section-titled-1-and-display-the-user-provided-hindi-explanation-text-verbatim-preserving-line-breaks",
+      "title": "Add a new dedicated page section titled “₹1 सहयोग कैसे काम करता है?” and display the user-provided Hindi explanation text verbatim, preserving line breaks.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-new-1-section-to-the-single-page-flow-and-navigation-render-it-in-the-main-page-app-and-add-a-corresponding-header-navigation-item-that-smooth-scrolls-to-the-new-section",
+      "title": "Add the new “₹1 सहयोग कैसे काम करता है?” section to the single-page flow and navigation: render it in the main page (App) and add a corresponding header navigation item that smooth-scrolls to the new section.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-store-the-new-section-s-title-and-body-copy-in-the-existing-hindi-content-source-frontend-src-content-hi-ts-as-new-fields-and-have-the-new-section-component-read-from-those-fields-no-hardcoded-copy-in-the-component",
+      "title": "Store the new section’s title and body copy in the existing Hindi content source (frontend/src/content/hi.ts) as new fields, and have the new section component read from those fields (no hardcoded copy in the component).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-new-single-page-section-for-member-registration-reachable-via-a-header-navigation-item-using-an-on-page-registration-form-frontend-only-ui",
+      "title": "Add a new single-page section for member registration, reachable via a header navigation item, using an on-page registration form (frontend-only UI).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-member-registration-form-ui-with-client-side-validation-and-a-clear-disclaimer-that-submissions-are-not-delivered-saved-yet-no-backend-integration",
+      "title": "Implement the member registration form UI with client-side validation and a clear disclaimer that submissions are not delivered/saved yet (no backend integration).",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create NGO website for “डिजिटल भारत एकता संगठन” featuring Hindi welcome/mission content, goals (1,00,000 ईमानदार साथी), and values (एकता, पारदर्शिता, मानवता, न्याय).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add a dedicated “₹1 सहयोग कैसे काम करता है?” section and display the user-provided Hindi explanation text verbatim (1,00,000 people × ₹1 = ₹1,00,000; used for one needy person’s financial/administrative help within legal limits; not charity—mutual support).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Add a Help/Complaint submission section (form fields: Name, Mobile Number, District/State, Issue Type, Short Description, Evidence if any) and display the disclaimer: “बिना सत्य जानकारी के किसी भी मामले पर कार्रवाई नहीं होगी।”",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Add a ‘विचारधारा’/Ideology section highlighting the lines: “संगठन आवाज़ है, अदालत नहीं” and “संगठन मार्गदर्शन है, टकराव नहीं”.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add a member registration option (member signup/registration UI).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "डिजिटल भारत एकता संगठन",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

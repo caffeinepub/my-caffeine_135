@@ -1,2 +1,3 @@
-# my-caffeine_135
-Exported from Caffeine project: डिजिटल भारत एकता संगठन
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

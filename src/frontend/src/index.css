@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.75rem;
+        
+        /* Saffron/Orange inspired palette for NGO */
+        --background: 0.99 0.005 45;
+        --foreground: 0.25 0.015 45;
+        
+        --card: 1 0 0;
+        --card-foreground: 0.25 0.015 45;
+        
+        --popover: 1 0 0;
+        --popover-foreground: 0.25 0.015 45;
+        
+        /* Primary: Warm saffron/orange */
+        --primary: 0.65 0.18 45;
+        --primary-foreground: 0.99 0.005 45;
+        
+        /* Secondary: Earthy green */
+        --secondary: 0.88 0.08 150;
+        --secondary-foreground: 0.25 0.015 150;
+        
+        --muted: 0.95 0.01 45;
+        --muted-foreground: 0.55 0.02 45;
+        
+        --accent: 0.92 0.05 45;
+        --accent-foreground: 0.25 0.015 45;
+        
+        --destructive: 0.55 0.22 25;
+        --destructive-foreground: 0.99 0 0;
+        
+        --border: 0.88 0.02 45;
+        --input: 0.88 0.02 45;
+        --ring: 0.65 0.18 45;
+        
+        --chart-1: 0.65 0.18 45;
+        --chart-2: 0.70 0.15 150;
+        --chart-3: 0.60 0.20 25;
+        --chart-4: 0.75 0.12 200;
+        --chart-5: 0.68 0.16 80;
+    }
+
+    .dark {
+        --background: 0.18 0.015 45;
+        --foreground: 0.95 0.01 45;
+        
+        --card: 0.22 0.018 45;
+        --card-foreground: 0.95 0.01 45;
+        
+        --popover: 0.20 0.016 45;
+        --popover-foreground: 0.95 0.01 45;
+        
+        /* Primary: Brighter saffron for dark mode */
+        --primary: 0.75 0.20 45;
+        --primary-foreground: 0.15 0.015 45;
+        
+        --secondary: 0.35 0.08 150;
+        --secondary-foreground: 0.95 0.01 150;
+        
+        --muted: 0.28 0.02 45;
+        --muted-foreground: 0.65 0.03 45;
+        
+        --accent: 0.32 0.04 45;
+        --accent-foreground: 0.95 0.01 45;
+        
+        --destructive: 0.60 0.24 25;
+        --destructive-foreground: 0.95 0 0;
+        
+        --border: 0.30 0.02 45;
+        --input: 0.30 0.02 45;
+        --ring: 0.70 0.18 45;
+        
+        --chart-1: 0.75 0.20 45;
+        --chart-2: 0.65 0.15 150;
+        --chart-3: 0.70 0.22 25;
+        --chart-4: 0.60 0.12 200;
+        --chart-5: 0.72 0.18 80;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+}

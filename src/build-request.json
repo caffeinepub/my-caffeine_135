@@ -1,0 +1,60 @@
+{
+  "kind": "build_request",
+  "title": "Add member registration option (new section + navigation)",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-9",
+      "text": "Add a new single-page section for member registration, reachable via a header navigation item, using an on-page registration form (frontend-only UI).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages"
+        ],
+        "quotes": [
+          "add member registration option"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A new section exists in the main page flow with a stable anchor id (e.g., \"member-registration\").",
+        "Site header navigation includes a new item (label in English) that smooth-scrolls to the member registration section on desktop and mobile menus.",
+        "The new section is rendered from App.tsx in the correct order alongside existing sections.",
+        "All user-facing text introduced by this feature is in English."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Implement the member registration form UI with client-side validation and a clear disclaimer that submissions are not delivered/saved yet (no backend integration).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages"
+        ],
+        "quotes": [
+          "add member registration option"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The form includes, at minimum: Full name, Phone number, Email (optional), District/State, and a short \"Why do you want to join?\" message.",
+        "Client-side validation blocks submission when required fields are missing and shows an error toast/message in English.",
+        "On successful simulated submission, show an English success toast/message and reset the form fields.",
+        "A visible disclaimer in English states that this is a demo form and submissions are not currently delivered or stored.",
+        "No calls are made to the Motoko backend actor for this form."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files under frontend/src/components/ui (compose existing UI components instead).",
+    "Do not edit immutable hook files listed in SYSTEM_CONTEXT (frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx).",
+    "Keep the backend as a single Motoko actor; only add backend logic if explicitly required (this request does not require it)."
+  ],
+  "nonGoals": [
+    "Implementing backend persistence for member registrations.",
+    "Adding third-party authentication or sign-in beyond existing Internet Identity plumbing.",
+    "Sending emails/SMS/notifications upon registration."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
