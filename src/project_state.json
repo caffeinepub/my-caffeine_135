@@ -1,11 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 17,
+  "projectStateVersion": 19,
   "summary": "Build an NGO-related website for “डिजिटल भारत एकता संगठन” with provided Hindi welcome message, mission statement, goals, and values.",
   "architectural_notes": [],
   "known_issues": [
-    "Production deployment domain validation error when using Hindi/Devanagari characters in domain name (must be 5–50 chars, only letters/numbers/hyphens).",
-    "Version 7 deployment resulted in a completely blank website (production build issue or runtime error preventing React app from rendering)."
+    "Production deployment domain validation error when using Hindi/Devanagari characters in domain name (must be 5–50 chars, only letters/numbers/hyphens)."
   ],
   "isFixRequest": true,
   "existing_features": [
@@ -272,6 +271,30 @@
         "REQ-42"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-update-the-passwordauth-component-in-frontend-src-components-admin-passwordauth-tsx-to-replace-the-hardcoded-admin123-password-with-a-configurable-password-value-that-can-be-set-via-environment-variable-or-configuration",
+      "title": "Update the PasswordAuth component in frontend/src/components/admin/PasswordAuth.tsx to replace the hardcoded 'admin123' password with a configurable password value that can be set via environment variable or configuration",
+      "reqIds": [
+        "REQ-43"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-password-configuration-to-frontend-src-content-hi-ts-or-a-separate-config-file-that-stores-the-admin-password-securely-for-the-password-protection-feature",
+      "title": "Add password configuration to frontend/src/content/hi.ts or a separate config file that stores the admin password securely for the password protection feature",
+      "reqIds": [
+        "REQ-44"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-user-facing-error-message-in-hindi-to-frontend-src-content-hi-ts-for-incorrect-password-attempts-in-the-admin-dashboard-authentication",
+      "title": "Add user-facing error message in Hindi to frontend/src/content/hi.ts for incorrect password attempts in the admin dashboard authentication",
+      "reqIds": [
+        "REQ-45"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -399,6 +422,12 @@
       "reqIds": [
         "REQ-34"
       ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-31",
+      "summary": "Add simple password protection to admin dashboard at /admin with password prompt before allowing access",
+      "reqIds": [],
       "status": "pending"
     }
   ],

@@ -1,76 +1,48 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-21T03:24:40.888Z",
+  "generatedAt": "2026-02-21T03:38:33.315Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 5,
-    "implemented": 5,
+    "total": 3,
+    "implemented": 3,
     "items": [
       {
-        "id": "REQ-38",
-        "summary": "Investigate and fix the root cause of the blank page in production by checking for runtime errors in the React application, ensuring all imports and dependencies are correctly resolved, and verifying that the root element mounting in frontend/src/main.tsx is working properly",
+        "id": "REQ-43",
+        "summary": "Update the PasswordAuth component in frontend/src/components/admin/PasswordAuth.tsx to replace the hardcoded 'admin123' password with a configurable password value that can be set via environment variable or configuration",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/main.tsx",
-          "frontend/src/App.tsx"
+          "frontend/src/components/admin/PasswordAuth.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/App.tsx"
+          "frontend/src/components/admin/PasswordAuth.tsx"
         ]
       },
       {
-        "id": "REQ-39",
-        "summary": "Verify that frontend/src/App.tsx correctly configures TanStack Router with both the home (/) and admin (/admin) routes and that the RouterProvider is properly wrapped with QueryClientProvider",
+        "id": "REQ-44",
+        "summary": "Add password configuration to frontend/src/content/hi.ts or a separate config file that stores the admin password securely for the password protection feature",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/App.tsx"
+          "frontend/src/config/auth.ts"
         ],
         "matchedFiles": [
-          "frontend/src/App.tsx"
+          "frontend/src/config/auth.ts"
         ]
       },
       {
-        "id": "REQ-40",
-        "summary": "Ensure all component imports in frontend/src/pages/HomePage.tsx and frontend/src/pages/AdminDashboard.tsx resolve correctly and that no circular dependencies or missing modules cause the application to fail",
+        "id": "REQ-45",
+        "summary": "Add user-facing error message in Hindi to frontend/src/content/hi.ts for incorrect password attempts in the admin dashboard authentication",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/HomePage.tsx",
-          "frontend/src/pages/AdminDashboard.tsx"
+          "frontend/src/content/hi.ts",
+          "frontend/src/components/admin/PasswordAuth.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/HomePage.tsx",
-          "frontend/src/pages/AdminDashboard.tsx"
-        ]
-      },
-      {
-        "id": "REQ-41",
-        "summary": "Verify that the backend actor initialization in frontend/src/hooks/useActor.ts completes successfully and does not block the application from rendering if the actor creation fails or is pending",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/hooks/useActor.ts",
-          "frontend/src/pages/HomePage.tsx",
-          "frontend/src/pages/AdminDashboard.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/HomePage.tsx",
-          "frontend/src/pages/AdminDashboard.tsx"
-        ]
-      },
-      {
-        "id": "REQ-42",
-        "summary": "Add error boundary component to catch and display React rendering errors instead of showing a blank page, with a user-friendly error message and option to reload the page",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/ErrorBoundary.tsx",
-          "frontend/src/App.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/ErrorBoundary.tsx",
-          "frontend/src/App.tsx"
+          "frontend/src/content/hi.ts",
+          "frontend/src/components/admin/PasswordAuth.tsx"
         ]
       }
     ]
@@ -80,10 +52,9 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/App.tsx",
-    "frontend/src/components/ErrorBoundary.tsx",
-    "frontend/src/pages/AdminDashboard.tsx",
-    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/components/admin/PasswordAuth.tsx",
+    "frontend/src/config/auth.ts",
+    "frontend/src/content/hi.ts",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

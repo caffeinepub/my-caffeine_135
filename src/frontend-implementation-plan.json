@@ -1,112 +1,58 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Fix blank page rendering issue in production",
+  "title": "Add simple password protection to admin dashboard",
   "requirements": [
     {
-      "id": "REQ-42",
-      "summary": "Add error boundary component to catch and display React rendering errors with user-friendly bilingual messages",
+      "id": "REQ-43",
+      "summary": "Update PasswordAuth component to use configurable password from environment variable or configuration instead of hardcoded value",
       "acceptanceCriteria": [
-        "Error boundary wraps the main application in frontend/src/App.tsx",
-        "When a component error occurs, a fallback UI displays instead of a blank page",
-        "Error details are logged to the console for debugging",
-        "Users can see a friendly error message in both Hindi and English"
+        "Password is stored in a configuration file or environment variable instead of being hardcoded",
+        "Admin can change the password without modifying component code",
+        "Password input and validation logic remains unchanged"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/ErrorBoundary.tsx",
+          "path": "frontend/src/components/admin/PasswordAuth.tsx",
+          "operation": "modify",
+          "description": "Replace hardcoded 'admin123' password with a configurable password imported from the configuration file. Update the password validation logic to compare against the imported ADMIN_PASSWORD constant while maintaining existing sessionStorage-based authentication flow and UI structure."
+        }
+      ]
+    },
+    {
+      "id": "REQ-44",
+      "summary": "Add password configuration to a centralized location for admin authentication",
+      "acceptanceCriteria": [
+        "Password is stored in a centralized location",
+        "Configuration is easy to locate and update",
+        "Password remains functional with existing PasswordAuth component"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/config/auth.ts",
           "operation": "create",
-          "description": "Create a React error boundary class component that catches rendering errors and displays a bilingual fallback UI with error details logged to console. Include a reload button and friendly message in both Hindi and English. This ensures the application never shows a blank page on component errors."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Wrap the RouterProvider with the ErrorBoundary component to catch all rendering errors throughout the application. Ensure the error boundary is placed inside QueryClientProvider but wraps the entire router tree."
+          "description": "Create new configuration file that exports ADMIN_PASSWORD constant. This constant should be set to a default value (e.g., 'admin123') but can be overridden via environment variables. Include a comment explaining how to change the password for production use."
         }
       ]
     },
     {
-      "id": "REQ-38",
-      "summary": "Investigate and fix root cause of blank page by adding defensive checks and error handling in the React application mounting flow",
+      "id": "REQ-45",
+      "summary": "Add Hindi error message for incorrect password attempts in admin authentication",
       "acceptanceCriteria": [
-        "The homepage renders successfully with all sections visible",
-        "The admin dashboard is accessible and renders correctly",
-        "No JavaScript errors appear in the browser console",
-        "The React application mounts to the DOM without errors"
+        "Error message is stored in the Hindi content file",
+        "Message clearly indicates incorrect password in Hindi",
+        "PasswordAuth component can reference this message"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/main.tsx",
+          "path": "frontend/src/content/hi.ts",
           "operation": "modify",
-          "description": "Add defensive checks to ensure the root element exists before mounting React. Add try-catch error handling around the render call with console logging. Verify StrictMode, QueryClientProvider, and InternetIdentityProvider are correctly configured and that the App component is properly imported and rendered."
+          "description": "Add a new auth section to the content object containing an incorrectPasswordError message in Hindi (e.g., 'गलत पासवर्ड। कृपया पुनः प्रयास करें।'). This message should be clear and user-friendly for incorrect password attempts."
         },
         {
-          "path": "frontend/src/App.tsx",
+          "path": "frontend/src/components/admin/PasswordAuth.tsx",
           "operation": "modify",
-          "description": "Add null checks and defensive coding around router initialization. Ensure both route definitions (home and admin) are properly created and the RouterProvider receives a valid router instance. Add console logging for debugging router setup issues."
-        }
-      ]
-    },
-    {
-      "id": "REQ-39",
-      "summary": "Verify TanStack Router configuration with defensive route setup and proper QueryClientProvider wrapping",
-      "acceptanceCriteria": [
-        "Both routes render their respective page components",
-        "Navigation between routes works without errors",
-        "QueryClient context is available to all components"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Review and fix the TanStack Router setup to ensure both the home route (/) and admin route (/admin) are correctly defined with their respective page components. Verify the router tree is properly created and passed to RouterProvider. Add loading and error states for route rendering failures."
-        }
-      ]
-    },
-    {
-      "id": "REQ-40",
-      "summary": "Ensure all component imports resolve correctly and add defensive loading states to prevent render blocking",
-      "acceptanceCriteria": [
-        "All section components import and render without errors",
-        "All admin dashboard components import and render without errors",
-        "No module resolution errors in the build output"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/HomePage.tsx",
-          "operation": "modify",
-          "description": "Review all component imports (HeroSection, WelcomeMissionSection, GoalSection, ValuesSection, OneRupeeSupportSection, MemberRegistrationSection, ContactSection) and verify correct paths. Add React.lazy and Suspense wrappers with loading fallbacks to prevent any single component failure from blocking the entire page. Wrap each section in error boundaries at the page level."
-        },
-        {
-          "path": "frontend/src/pages/AdminDashboard.tsx",
-          "operation": "modify",
-          "description": "Review all component imports (PasswordAuth, StatisticsCards, MemberSearch, StatusFilter, MemberTable, PaginationControls, ExportButton, BulkNotificationDialog, EditMemberDialog, DeleteMemberDialog) and verify correct paths. Add defensive rendering with proper loading states for data-dependent components. Ensure the PasswordAuth guard doesn't block rendering if it encounters an error."
-        }
-      ]
-    },
-    {
-      "id": "REQ-41",
-      "summary": "Ensure backend actor initialization does not block application rendering with proper loading states and error handling",
-      "acceptanceCriteria": [
-        "Application renders even if backend actor is not yet initialized",
-        "Loading states are properly handled in components that depend on the actor",
-        "Error boundaries catch and handle actor initialization failures gracefully"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/hooks/useActor.ts",
-          "operation": "modify",
-          "description": "Add error handling for actor creation failures to prevent the entire application from failing. Ensure the hook returns a stable object even when the actor is null or pending. Add retry logic with exponential backoff for transient initialization failures. Log errors to console without throwing exceptions that would prevent rendering."
-        },
-        {
-          "path": "frontend/src/pages/HomePage.tsx",
-          "operation": "modify",
-          "description": "Ensure that sections using the actor (MemberRegistrationSection) gracefully handle cases where the actor is not yet initialized. Display appropriate loading states or disabled form states rather than blocking the entire page render."
-        },
-        {
-          "path": "frontend/src/pages/AdminDashboard.tsx",
-          "operation": "modify",
-          "description": "Add checks to ensure the admin dashboard renders its layout and non-data-dependent UI even if the actor is still initializing. Show loading skeletons or spinners for data-dependent sections (StatisticsCards, MemberTable) while actor initialization is pending."
+          "description": "Import the Hindi content file and use the incorrectPasswordError message from the auth section when displaying password validation errors. Update the error state handling to reference this localized error message instead of any hardcoded English text."
         }
       ]
     }

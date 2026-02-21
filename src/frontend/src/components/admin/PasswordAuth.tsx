@@ -5,12 +5,12 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
 import { Lock } from 'lucide-react';
+import { ADMIN_PASSWORD } from '@/config/auth';
+import { content } from '@/content/hi';
 
 interface PasswordAuthProps {
   onAuthenticated: () => void;
 }
-
-const ADMIN_PASSWORD = 'admin123'; // In production, this should be handled securely
 
 export function PasswordAuth({ onAuthenticated }: PasswordAuthProps) {
   const [password, setPassword] = useState('');
@@ -27,7 +27,7 @@ export function PasswordAuth({ onAuthenticated }: PasswordAuthProps) {
         onAuthenticated();
         toast.success('Authentication successful');
       } else {
-        toast.error('Invalid password');
+        toast.error(content.auth.incorrectPasswordError);
       }
       setIsLoading(false);
     }, 500);

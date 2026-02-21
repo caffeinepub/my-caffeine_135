@@ -1,99 +1,69 @@
 {
   "kind": "build_request",
-  "title": "Fix blank page rendering issue in production",
+  "title": "Add simple password protection to admin dashboard",
   "projectName": "Jan Kalyan Ekta Sangathan",
-  "priority": "high",
+  "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-38",
-      "text": "Investigate and fix the root cause of the blank page in production by checking for runtime errors in the React application, ensuring all imports and dependencies are correctly resolved, and verifying that the root element mounting in frontend/src/main.tsx is working properly",
+      "id": "REQ-43",
+      "text": "Update the PasswordAuth component in frontend/src/components/admin/PasswordAuth.tsx to replace the hardcoded 'admin123' password with a configurable password value that can be set via environment variable or configuration",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-blank-page"
+          "msg-last"
         ],
         "quotes": [
-          "whole website is blank page"
+          "Simple password protection"
         ]
       },
       "acceptanceCriteria": [
-        "The homepage renders successfully with all sections visible",
-        "The admin dashboard is accessible and renders correctly",
-        "No JavaScript errors appear in the browser console",
-        "The React application mounts to the DOM without errors"
+        "Password is stored in a configuration file or environment variable instead of being hardcoded",
+        "Admin can change the password without modifying component code",
+        "Password input and validation logic remains unchanged"
       ]
     },
     {
-      "id": "REQ-39",
-      "text": "Verify that frontend/src/App.tsx correctly configures TanStack Router with both the home (/) and admin (/admin) routes and that the RouterProvider is properly wrapped with QueryClientProvider",
+      "id": "REQ-44",
+      "text": "Add password configuration to frontend/src/content/hi.ts or a separate config file that stores the admin password securely for the password protection feature",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-blank-page"
+          "msg-last"
         ]
       },
       "acceptanceCriteria": [
-        "Both routes render their respective page components",
-        "Navigation between routes works without errors",
-        "QueryClient context is available to all components"
+        "Password is stored in a centralized location",
+        "Configuration is easy to locate and update",
+        "Password remains functional with existing PasswordAuth component"
       ]
     },
     {
-      "id": "REQ-40",
-      "text": "Ensure all component imports in frontend/src/pages/HomePage.tsx and frontend/src/pages/AdminDashboard.tsx resolve correctly and that no circular dependencies or missing modules cause the application to fail",
+      "id": "REQ-45",
+      "text": "Add user-facing error message in Hindi to frontend/src/content/hi.ts for incorrect password attempts in the admin dashboard authentication",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-blank-page"
+          "msg-last"
         ]
       },
       "acceptanceCriteria": [
-        "All section components import and render without errors",
-        "All admin dashboard components import and render without errors",
-        "No module resolution errors in the build output"
-      ]
-    },
-    {
-      "id": "REQ-41",
-      "text": "Verify that the backend actor initialization in frontend/src/hooks/useActor.ts completes successfully and does not block the application from rendering if the actor creation fails or is pending",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-user-blank-page"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Application renders even if backend actor is not yet initialized",
-        "Loading states are properly handled in components that depend on the actor",
-        "Error boundaries catch and handle actor initialization failures gracefully"
-      ]
-    },
-    {
-      "id": "REQ-42",
-      "text": "Add error boundary component to catch and display React rendering errors instead of showing a blank page, with a user-friendly error message and option to reload the page",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-user-blank-page"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Error boundary wraps the main application in frontend/src/App.tsx",
-        "When a component error occurs, a fallback UI displays instead of a blank page",
-        "Error details are logged to the console for debugging",
-        "Users can see a friendly error message in both Hindi and English"
+        "Error message is stored in the Hindi content file",
+        "Message clearly indicates incorrect password in Hindi",
+        "PasswordAuth component can reference this message"
       ]
     }
   ],
   "constraints": [
-    "Do not modify the backend actor structure or data models",
-    "Preserve all existing functionality for admin dashboard and member registration",
-    "Do not change paths listed in frontend.immutablePaths"
+    "Do not modify frontend/src/hooks/useInternetIdentity.ts or frontend/src/hooks/useActor.ts",
+    "Maintain existing password authentication flow in PasswordAuth component",
+    "Keep sessionStorage-based authentication state management unchanged"
   ],
   "nonGoals": [
-    "Adding new features or sections to the website",
-    "Changing the visual design or theme",
-    "Modifying backend API methods or data structures"
+    "Implementing Internet Identity authentication",
+    "Adding multi-user password management",
+    "Implementing password reset functionality",
+    "Adding password encryption or hashing",
+    "Creating user role management"
   ],
   "imageRequirements": {
     "required": [],

@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-investigate-and-fix-the-root-cause-of-the-blank-page-in-production-by-checking-for-runtime-errors-in-the-react-application-ensuring-all-imports-and-dependencies-are-correctly-resolved-and-verifying-that-the-root-element-mounting-in-frontend-src-main-tsx-is-working-properly",
-      "featureTitle": "Investigate and fix the root cause of the blank page in production by checking for runtime errors in the React application, ensuring all imports and dependencies are correctly resolved, and verifying that the root element mounting in frontend/src/main.tsx is working properly",
+      "featureId": "feature-update-the-passwordauth-component-in-frontend-src-components-admin-passwordauth-tsx-to-replace-the-hardcoded-admin123-password-with-a-configurable-password-value-that-can-be-set-via-environment-variable-or-configuration",
+      "featureTitle": "Update the PasswordAuth component in frontend/src/components/admin/PasswordAuth.tsx to replace the hardcoded 'admin123' password with a configurable password value that can be set via environment variable or configuration",
       "files": [
-        "frontend/src/App.tsx"
+        "frontend/src/components/admin/PasswordAuth.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -16,15 +16,15 @@
         "authorization@4.0.0"
       ],
       "testIds": [
-        "REQ-38"
+        "REQ-43"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-verify-that-frontend-src-app-tsx-correctly-configures-tanstack-router-with-both-the-home-and-admin-admin-routes-and-that-the-routerprovider-is-properly-wrapped-with-queryclientprovider",
-      "featureTitle": "Verify that frontend/src/App.tsx correctly configures TanStack Router with both the home (/) and admin (/admin) routes and that the RouterProvider is properly wrapped with QueryClientProvider",
+      "featureId": "feature-add-password-configuration-to-frontend-src-content-hi-ts-or-a-separate-config-file-that-stores-the-admin-password-securely-for-the-password-protection-feature",
+      "featureTitle": "Add password configuration to frontend/src/content/hi.ts or a separate config file that stores the admin password securely for the password protection feature",
       "files": [
-        "frontend/src/App.tsx"
+        "frontend/src/config/auth.ts"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -35,16 +35,16 @@
         "authorization@4.0.0"
       ],
       "testIds": [
-        "REQ-39"
+        "REQ-44"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-ensure-all-component-imports-in-frontend-src-pages-homepage-tsx-and-frontend-src-pages-admindashboard-tsx-resolve-correctly-and-that-no-circular-dependencies-or-missing-modules-cause-the-application-to-fail",
-      "featureTitle": "Ensure all component imports in frontend/src/pages/HomePage.tsx and frontend/src/pages/AdminDashboard.tsx resolve correctly and that no circular dependencies or missing modules cause the application to fail",
+      "featureId": "feature-add-user-facing-error-message-in-hindi-to-frontend-src-content-hi-ts-for-incorrect-password-attempts-in-the-admin-dashboard-authentication",
+      "featureTitle": "Add user-facing error message in Hindi to frontend/src/content/hi.ts for incorrect password attempts in the admin dashboard authentication",
       "files": [
-        "frontend/src/pages/AdminDashboard.tsx",
-        "frontend/src/pages/HomePage.tsx"
+        "frontend/src/components/admin/PasswordAuth.tsx",
+        "frontend/src/content/hi.ts"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -55,47 +55,7 @@
         "authorization@4.0.0"
       ],
       "testIds": [
-        "REQ-40"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-verify-that-the-backend-actor-initialization-in-frontend-src-hooks-useactor-ts-completes-successfully-and-does-not-block-the-application-from-rendering-if-the-actor-creation-fails-or-is-pending",
-      "featureTitle": "Verify that the backend actor initialization in frontend/src/hooks/useActor.ts completes successfully and does not block the application from rendering if the actor creation fails or is pending",
-      "files": [
-        "frontend/src/pages/AdminDashboard.tsx",
-        "frontend/src/pages/HomePage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0",
-        "authorization@4.0.0"
-      ],
-      "testIds": [
-        "REQ-41"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-error-boundary-component-to-catch-and-display-react-rendering-errors-instead-of-showing-a-blank-page-with-a-user-friendly-error-message-and-option-to-reload-the-page",
-      "featureTitle": "Add error boundary component to catch and display React rendering errors instead of showing a blank page, with a user-friendly error message and option to reload the page",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/ErrorBoundary.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0",
-        "authorization@4.0.0"
-      ],
-      "testIds": [
-        "REQ-42"
+        "REQ-45"
       ],
       "confidence": "high"
     }
