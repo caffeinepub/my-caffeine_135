@@ -1,7 +1,7 @@
 export const content = {
-  organizationName: 'डिजिटल भारत एकता संगठन',
-  organizationNameEnglish: 'Digital Bharat Ekta Sangathan',
-  welcome: 'डिजिटल भारत एकता संगठन में आपका स्वागत है!',
+  organizationName: 'जन कल्याण संगठन',
+  organizationNameEnglish: 'Jan Kalyan Sangathan',
+  welcome: 'जन कल्याण संगठन में आपका स्वागत है!',
   quote: 'ना कोई अकेला होगा - जब सबका साथ होगा, तब हर\nसपना साकार होगा।',
   mission: 'यह संगठन केवल पैसों से नहीं, बल्कि अन्याय, भ्रष्टाचार\nऔर प्रशासनिक परेशानियों में भी कानून के दायरे में रहकर\nसहायता करता है।',
   goal: 'लक्ष्य: 1,00,000 ईमानदार साथी',

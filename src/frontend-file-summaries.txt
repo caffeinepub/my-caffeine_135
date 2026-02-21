@@ -1,6 +1,6 @@
 {
   "frontend/src/App.tsx": "Main application component that renders the complete single-page NGO website with header, hero, welcome/mission, goal, one rupee support, values, member registration, contact sections, and footer with toast notifications.",
-  "frontend/src/content/hi.ts": "Centralized content store containing all Hindi text content for the NGO website including organization name, welcome message, quote, mission, goal, values, tagline, and the new \"₹1 सहयोग कैसे काम करता है?\" section content.",
+  "frontend/src/content/hi.ts": "Centralized content store containing all Hindi text content for the NGO website with organization name updated to 'जन कल्याण संगठन' (Jan Kalyan Sangathan), including welcome message, quote, mission, goal, values, tagline, and the ₹1 support section content.",
   "frontend/src/components/layout/SiteHeader.tsx": "Sticky header component with logo, organization name, responsive navigation menu including the new \"Member Registration\" navigation item with smooth scroll-to-section functionality for both desktop and mobile views.",
   "frontend/src/components/layout/SiteFooter.tsx": "Footer component displaying organization name in both English and Hindi, tagline, copyright notice, and attribution link to caffeine.ai with UTM tracking.",
   "frontend/src/components/sections/HeroSection.tsx": "Hero section with background image overlay, large organization name, tagline, inspirational quote, and call-to-action button with smooth scroll.",
@@ -12,5 +12,6 @@
   "frontend/tailwind.config.js": "Tailwind configuration extending the theme with custom color tokens, typography, spacing, and animation settings for the NGO website design system.",
   "frontend/src/hooks/useQueries.ts": "Placeholder file for future React Query hooks to interact with backend; currently minimal as backend has no methods.",
   "frontend/src/components/sections/OneRupeeSupportSection.tsx": "New section component displaying the \"₹1 सहयोग कैसे काम करता है?\" informational content with a Coins icon, heading, and body text in a card layout with whitespace-preserved formatting.",
-  "frontend/src/components/sections/MemberRegistrationSection.tsx": "New section component with a member registration form including fields for full name, phone, email (optional), district/state, and a message, with client-side validation, demo disclaimer, and simulated submission feedback using toast notifications."
+  "frontend/src/components/sections/MemberRegistrationSection.tsx": "New section component with a member registration form including fields for full name, phone, email (optional), district/state, and a message, with client-side validation, demo disclaimer, and simulated submission feedback using toast notifications.",
+  "frontend/index.html": "HTML entry point with updated document title displaying both Hindi and English organization names 'जन कल्याण संगठन - Jan Kalyan Sangathan'."
 }

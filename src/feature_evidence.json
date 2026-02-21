@@ -2,12 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-a-new-single-page-section-for-member-registration-reachable-via-a-header-navigation-item-using-an-on-page-registration-form-frontend-only-ui",
-      "featureTitle": "Add a new single-page section for member registration, reachable via a header navigation item, using an on-page registration form (frontend-only UI).",
+      "featureId": "feature-update-the-organization-name-in-frontend-src-content-hi-ts-from-to",
+      "featureTitle": "Update the organization name in frontend/src/content/hi.ts from 'डिजिटल भारत एकता संगठन' to 'जन कल्याण संगठन'",
       "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/layout/SiteHeader.tsx",
-        "frontend/src/components/sections/MemberRegistrationSection.tsx"
+        "frontend/src/content/hi.ts"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -17,15 +15,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-9"
+        "REQ-11"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-implement-the-member-registration-form-ui-with-client-side-validation-and-a-clear-disclaimer-that-submissions-are-not-delivered-saved-yet-no-backend-integration",
-      "featureTitle": "Implement the member registration form UI with client-side validation and a clear disclaimer that submissions are not delivered/saved yet (no backend integration).",
+      "featureId": "feature-update-any-english-transliteration-or-romanized-references-to-reflect-jan-kalyan-sangathan-instead-of-digital-bharat-ekta-sangathan",
+      "featureTitle": "Update any English transliteration or romanized references to reflect 'Jan Kalyan Sangathan' instead of 'Digital Bharat Ekta Sangathan'",
       "files": [
-        "frontend/src/components/sections/MemberRegistrationSection.tsx"
+        "frontend/index.html"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -35,7 +33,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-10"
+        "REQ-12"
       ],
       "confidence": "high"
     }

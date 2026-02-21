@@ -1,50 +1,37 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add member registration section and form (frontend-only)",
+  "title": "Change organization title to 'जन कल्याण संगठन' in Hindi",
   "requirements": [
     {
-      "id": "REQ-9",
-      "summary": "Add a new member registration section in the main page flow and link to it from the header navigation with smooth-scroll.",
+      "id": "REQ-11",
+      "summary": "Update the organization name in frontend/src/content/hi.ts from 'डिजिटल भारत एकता संगठन' to 'जन कल्याण संगठन'",
       "acceptanceCriteria": [
-        "A new section exists in the main page flow with a stable anchor id (e.g., \"member-registration\").",
-        "Site header navigation includes a new item (label in English) that smooth-scrolls to the member registration section on desktop and mobile menus.",
-        "The new section is rendered from App.tsx in the correct order alongside existing sections.",
-        "All user-facing text introduced by this feature is in English."
+        "The organizationName field in hi.ts displays 'जन कल्याण संगठन'",
+        "The site header shows the new organization name",
+        "The hero section displays the new organization name",
+        "The footer displays the new organization name"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/sections/MemberRegistrationSection.tsx",
-          "operation": "create",
-          "description": "Create a new section component with a stable anchor id \"member-registration\" and English-only headings/body text. Compose existing shadcn-ui components (e.g., Card, Input, Textarea, Button, Label, Alert) for layout and messaging. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/App.tsx",
+          "path": "frontend/src/content/hi.ts",
           "operation": "modify",
-          "description": "Import and render the new MemberRegistrationSection from App.tsx in the intended order alongside existing sections (e.g., placed before ContactSection) so it is part of the main single-page flow."
-        },
-        {
-          "path": "frontend/src/components/layout/SiteHeader.tsx",
-          "operation": "modify",
-          "description": "Add a new header navigation item with an English label (e.g., \"Member Registration\") pointing to the \"member-registration\" section id, ensuring existing smooth-scroll behavior works for both desktop and mobile menus. Verify the component's usage instructions before implementing."
+          "description": "Update the organizationName field from 'डिजिटल भारत एकता संगठन' to 'जन कल्याण संगठन'. Preserve all other Hindi content exactly as is. This change will propagate to SiteHeader, HeroSection, and SiteFooter components that consume this content."
         }
       ]
     },
     {
-      "id": "REQ-10",
-      "summary": "Implement the member registration form UI with client-side validation, demo-only disclaimer, and simulated submission feedback (no backend calls).",
+      "id": "REQ-12",
+      "summary": "Update any English transliteration or romanized references to reflect 'Jan Kalyan Sangathan' instead of 'Digital Bharat Ekta Sangathan'",
       "acceptanceCriteria": [
-        "The form includes, at minimum: Full name, Phone number, Email (optional), District/State, and a short \"Why do you want to join?\" message.",
-        "Client-side validation blocks submission when required fields are missing and shows an error toast/message in English.",
-        "On successful simulated submission, show an English success toast/message and reset the form fields.",
-        "A visible disclaimer in English states that this is a demo form and submissions are not currently delivered or stored.",
-        "No calls are made to the Motoko backend actor for this form."
+        "All English references use 'Jan Kalyan Sangathan' or appropriate context-specific wording",
+        "No references to the old organization name remain"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/sections/MemberRegistrationSection.tsx",
+          "path": "frontend/index.html",
           "operation": "modify",
-          "description": "Implement the registration form fields (Full name, Phone number, optional Email, District/State, and a short message), add client-side validation (block submit + show English toast/message when invalid), simulate a successful submission (English success toast/message + reset fields), and render a visible English disclaimer stating submissions are not delivered/stored. Use the existing toast system (sonner) and compose shadcn-ui form components without editing files under frontend/src/components/ui. Verify the component's usage instructions before implementing."
+          "description": "Update the <title> tag and any meta tags containing 'Digital Bharat Ekta Sangathan' or similar English references to 'Jan Kalyan Sangathan'. Ensure the document title reflects the new organization name."
         }
       ]
     }
