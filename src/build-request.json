@@ -1,52 +1,72 @@
 {
   "kind": "build_request",
-  "title": "Change organization title to 'जन कल्याण संगठन' in Hindi",
-  "projectName": "Jan Kalyan Sangathan",
+  "title": "Update organization name to 'जन कल्याण एकता संगठन'",
+  "projectName": "Jan Kalyan Ekta Sangathan",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-11",
-      "text": "Update the organization name in frontend/src/content/hi.ts from 'डिजिटल भारत एकता संगठन' to 'जन कल्याण संगठन'",
+      "id": "REQ-13",
+      "text": "Update the organization name in frontend/src/content/hi.ts from 'जन कल्याण संगठन' to 'जन कल्याण एकता संगठन'",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-latest"
+          "msg-latest"
         ],
         "quotes": [
-          "change title name to jan kalyan sangathan in hindi"
+          "do add as jan kalyand ekta sangthan in hindi"
         ]
       },
       "acceptanceCriteria": [
-        "The organizationName field in hi.ts displays 'जन कल्याण संगठन'",
-        "The site header shows the new organization name",
-        "The hero section displays the new organization name",
-        "The footer displays the new organization name"
+        "The organizationName field in frontend/src/content/hi.ts contains 'जन कल्याण एकता संगठन'",
+        "The organization name displays correctly in the header",
+        "The organization name displays correctly in the footer",
+        "The organization name displays correctly in the hero section"
       ]
     },
     {
-      "id": "REQ-12",
-      "text": "Update any English transliteration or romanized references to reflect 'Jan Kalyan Sangathan' instead of 'Digital Bharat Ekta Sangathan'",
+      "id": "REQ-14",
+      "text": "Update the English transliteration in frontend/index.html title from 'Jan Kalyan Sangathan' to 'Jan Kalyan Ekta Sangathan'",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-latest"
+          "msg-latest"
+        ],
+        "quotes": [
+          "do add as jan kalyand ekta sangthan in hindi"
         ]
       },
       "acceptanceCriteria": [
-        "All English references use 'Jan Kalyan Sangathan' or appropriate context-specific wording",
-        "No references to the old organization name remain"
+        "The HTML title tag contains 'जन कल्याण एकता संगठन - Jan Kalyan Ekta Sangathan'",
+        "The browser tab displays the updated organization name"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Update any romanized references in comments or documentation from 'Jan Kalyan Sangathan' to 'Jan Kalyan Ekta Sangathan' to maintain consistency",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "do add as jan kalyand ekta sangthan in hindi"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All code comments and documentation reflect 'Jan Kalyan Ekta Sangathan'",
+        "No references to the old name 'Jan Kalyan Sangathan' remain in the codebase"
       ]
     }
   ],
   "constraints": [
-    "Preserve all other Hindi content exactly as is",
-    "Do not modify the backend",
+    "Do not modify backend files",
+    "Preserve all existing Hindi content structure and formatting",
     "Do not change the visual theme or layout"
   ],
   "nonGoals": [
-    "Updating the tagline or mission statement",
-    "Changing the values or goals",
-    "Modifying any section content beyond the organization name"
+    "Changing any other content besides the organization name",
+    "Modifying the site structure or navigation",
+    "Adding new sections or features"
   ],
   "imageRequirements": {
     "required": [],

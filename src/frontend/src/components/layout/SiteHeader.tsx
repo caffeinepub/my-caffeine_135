@@ -56,7 +56,7 @@ export function SiteHeader() {
           >
             <img
               src="/assets/generated/ngo-emblem.dim_512x512.png"
-              alt="डिजिटल भारत एकता संगठन लोगो"
+              alt="जन कल्याण एकता संगठन लोगो"
               className="h-12 w-12 object-contain"
             />
             <div className="flex flex-col items-start">

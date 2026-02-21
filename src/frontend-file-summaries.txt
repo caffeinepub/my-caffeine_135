@@ -1,9 +1,9 @@
 {
   "frontend/src/App.tsx": "Main application component that renders the complete single-page NGO website with header, hero, welcome/mission, goal, one rupee support, values, member registration, contact sections, and footer with toast notifications.",
-  "frontend/src/content/hi.ts": "Centralized content store containing all Hindi text content for the NGO website with organization name updated to 'जन कल्याण संगठन' (Jan Kalyan Sangathan), including welcome message, quote, mission, goal, values, tagline, and the ₹1 support section content.",
-  "frontend/src/components/layout/SiteHeader.tsx": "Sticky header component with logo, organization name, responsive navigation menu including the new \"Member Registration\" navigation item with smooth scroll-to-section functionality for both desktop and mobile views.",
-  "frontend/src/components/layout/SiteFooter.tsx": "Footer component displaying organization name in both English and Hindi, tagline, copyright notice, and attribution link to caffeine.ai with UTM tracking.",
-  "frontend/src/components/sections/HeroSection.tsx": "Hero section with background image overlay, large organization name, tagline, inspirational quote, and call-to-action button with smooth scroll.",
+  "frontend/src/content/hi.ts": "Centralized content store containing all Hindi text content for the NGO website with organization name updated to 'जन कल्याण एकता संगठन' (Jan Kalyan Ekta Sangathan), including welcome message, quote, mission, goal, values, tagline, and the ₹1 support section content.",
+  "frontend/src/components/layout/SiteHeader.tsx": "Sticky header component with logo, organization name 'जन कल्याण एकता संगठन', responsive navigation menu including the Member Registration navigation item with smooth scroll-to-section functionality for both desktop and mobile views.",
+  "frontend/src/components/layout/SiteFooter.tsx": "Footer component displaying organization name 'Jan Kalyan Ekta Sangathan' in both English and Hindi, tagline, copyright notice, and attribution link to caffeine.ai with updated UTM tracking identifier.",
+  "frontend/src/components/sections/HeroSection.tsx": "Hero section with background image overlay, large organization name 'जन कल्याण एकता संगठन', tagline, inspirational quote, and call-to-action button with smooth scroll.",
   "frontend/src/components/sections/WelcomeMissionSection.tsx": "Welcome and mission section displaying the Hindi welcome message, quote in a card, mission statement, and three mission highlight cards with icons.",
   "frontend/src/components/sections/GoalSection.tsx": "Goal section prominently displaying the target of 1,00,000 honest partners with visual emphasis using cards and icons, plus supporting content cards.",
   "frontend/src/components/sections/ValuesSection.tsx": "Values section showcasing the four core values (Unity, Transparency, Humanity, Justice) with the values icon set image and individual value cards.",
@@ -13,5 +13,5 @@
   "frontend/src/hooks/useQueries.ts": "Placeholder file for future React Query hooks to interact with backend; currently minimal as backend has no methods.",
   "frontend/src/components/sections/OneRupeeSupportSection.tsx": "New section component displaying the \"₹1 सहयोग कैसे काम करता है?\" informational content with a Coins icon, heading, and body text in a card layout with whitespace-preserved formatting.",
   "frontend/src/components/sections/MemberRegistrationSection.tsx": "New section component with a member registration form including fields for full name, phone, email (optional), district/state, and a message, with client-side validation, demo disclaimer, and simulated submission feedback using toast notifications.",
-  "frontend/index.html": "HTML entry point with updated document title displaying both Hindi and English organization names 'जन कल्याण संगठन - Jan Kalyan Sangathan'."
+  "frontend/index.html": "HTML entry point with updated document title displaying both Hindi and English organization names 'जन कल्याण एकता संगठन - Jan Kalyan Ekta Sangathan'."
 }

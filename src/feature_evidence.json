@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-organization-name-in-frontend-src-content-hi-ts-from-to",
-      "featureTitle": "Update the organization name in frontend/src/content/hi.ts from 'डिजिटल भारत एकता संगठन' to 'जन कल्याण संगठन'",
+      "featureId": "feature-update-the-organization-name-in-frontend-src-content-hi-ts-from-to-2",
+      "featureTitle": "Update the organization name in frontend/src/content/hi.ts from 'जन कल्याण संगठन' to 'जन कल्याण एकता संगठन'",
       "files": [
         "frontend/src/content/hi.ts"
       ],
@@ -15,13 +15,13 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-11"
+        "REQ-13"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-any-english-transliteration-or-romanized-references-to-reflect-jan-kalyan-sangathan-instead-of-digital-bharat-ekta-sangathan",
-      "featureTitle": "Update any English transliteration or romanized references to reflect 'Jan Kalyan Sangathan' instead of 'Digital Bharat Ekta Sangathan'",
+      "featureId": "feature-update-the-english-transliteration-in-frontend-index-html-title-from-jan-kalyan-sangathan-to-jan-kalyan-ekta-sangathan",
+      "featureTitle": "Update the English transliteration in frontend/index.html title from 'Jan Kalyan Sangathan' to 'Jan Kalyan Ekta Sangathan'",
       "files": [
         "frontend/index.html"
       ],
@@ -33,7 +33,27 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-12"
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-any-romanized-references-in-comments-or-documentation-from-jan-kalyan-sangathan-to-jan-kalyan-ekta-sangathan-to-maintain-consistency",
+      "featureTitle": "Update any romanized references in comments or documentation from 'Jan Kalyan Sangathan' to 'Jan Kalyan Ekta Sangathan' to maintain consistency",
+      "files": [
+        "frontend/src/components/layout/SiteFooter.tsx",
+        "frontend/src/components/layout/SiteHeader.tsx",
+        "frontend/src/content/hi.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
       ],
       "confidence": "high"
     }

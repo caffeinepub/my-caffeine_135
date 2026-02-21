@@ -4,7 +4,7 @@ import { content } from '@/content/hi';
 export function SiteFooter() {
   const currentYear = new Date().getFullYear();
   const appIdentifier = encodeURIComponent(
-    typeof window !== 'undefined' ? window.location.hostname : 'digital-bharat-ekta'
+    typeof window !== 'undefined' ? window.location.hostname : 'jan-kalyan-ekta-sangathan'
   );
 
   return (

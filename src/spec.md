@@ -1,10 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Update the organization name from 'डिजिटल भारत एकता संगठन' to 'जन कल्याण संगठन' throughout the Hindi content.
+**Goal:** Update the organization name from "जन कल्याण संगठन" to "जन कल्याण एकता संगठन" throughout the application.
 
 **Planned changes:**
-- Change the organizationName field in frontend/src/content/hi.ts to 'जन कल्याण संगठन'
-- Update all English transliterations to 'Jan Kalyan Sangathan'
+- Update the Hindi organization name in frontend/src/content/hi.ts to "जन कल्याण एकता संगठन"
+- Update the English transliteration in frontend/index.html title to "Jan Kalyan Ekta Sangathan"
+- Update any romanized references in comments or documentation to maintain consistency
 
-**User-visible outcome:** The site displays 'जन कल्याण संगठन' as the organization name in the header, hero section, and footer, with all references updated accordingly.
+**User-visible outcome:** The organization name "जन कल्याण एकता संगठन" (Jan Kalyan Ekta Sangathan) will display correctly in the header, footer, hero section, and browser tab.

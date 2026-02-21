@@ -1,37 +1,67 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Change organization title to 'जन कल्याण संगठन' in Hindi",
+  "title": "Update organization name to 'जन कल्याण एकता संगठन'",
   "requirements": [
     {
-      "id": "REQ-11",
-      "summary": "Update the organization name in frontend/src/content/hi.ts from 'डिजिटल भारत एकता संगठन' to 'जन कल्याण संगठन'",
+      "id": "REQ-13",
+      "summary": "Update the organization name in Hindi content file from 'जन कल्याण संगठन' to 'जन कल्याण एकता संगठन'",
       "acceptanceCriteria": [
-        "The organizationName field in hi.ts displays 'जन कल्याण संगठन'",
-        "The site header shows the new organization name",
-        "The hero section displays the new organization name",
-        "The footer displays the new organization name"
+        "The organizationName field in frontend/src/content/hi.ts contains 'जन कल्याण एकता संगठन'",
+        "The organization name displays correctly in the header",
+        "The organization name displays correctly in the footer",
+        "The organization name displays correctly in the hero section"
       ],
       "file_operations": [
         {
           "path": "frontend/src/content/hi.ts",
           "operation": "modify",
-          "description": "Update the organizationName field from 'डिजिटल भारत एकता संगठन' to 'जन कल्याण संगठन'. Preserve all other Hindi content exactly as is. This change will propagate to SiteHeader, HeroSection, and SiteFooter components that consume this content."
+          "description": "Update the organizationName field from 'जन कल्याण संगठन' to 'जन कल्याण एकता संगठन'. This change will automatically propagate to all components that consume this content file including SiteHeader, SiteFooter, and HeroSection."
         }
       ]
     },
     {
-      "id": "REQ-12",
-      "summary": "Update any English transliteration or romanized references to reflect 'Jan Kalyan Sangathan' instead of 'Digital Bharat Ekta Sangathan'",
+      "id": "REQ-14",
+      "summary": "Update the English transliteration in HTML title from 'Jan Kalyan Sangathan' to 'Jan Kalyan Ekta Sangathan'",
       "acceptanceCriteria": [
-        "All English references use 'Jan Kalyan Sangathan' or appropriate context-specific wording",
-        "No references to the old organization name remain"
+        "The HTML title tag contains 'जन कल्याण एकता संगठन - Jan Kalyan Ekta Sangathan'",
+        "The browser tab displays the updated organization name"
       ],
       "file_operations": [
         {
           "path": "frontend/index.html",
           "operation": "modify",
-          "description": "Update the <title> tag and any meta tags containing 'Digital Bharat Ekta Sangathan' or similar English references to 'Jan Kalyan Sangathan'. Ensure the document title reflects the new organization name."
+          "description": "Update the title tag from 'जन कल्याण संगठन - Jan Kalyan Sangathan' to 'जन कल्याण एकता संगठन - Jan Kalyan Ekta Sangathan' to reflect the organization's updated English transliteration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Update any romanized references in comments or documentation from 'Jan Kalyan Sangathan' to 'Jan Kalyan Ekta Sangathan'",
+      "acceptanceCriteria": [
+        "All code comments and documentation reflect 'Jan Kalyan Ekta Sangathan'",
+        "No references to the old name 'Jan Kalyan Sangathan' remain in the codebase"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/content/hi.ts",
+          "operation": "modify",
+          "description": "Review and update any comments or documentation strings that reference 'Jan Kalyan Sangathan' to use 'Jan Kalyan Ekta Sangathan' instead, ensuring consistency across the codebase."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteHeader.tsx",
+          "operation": "modify",
+          "description": "Review comments and JSX text content for any hardcoded references to 'Jan Kalyan Sangathan' and update them to 'Jan Kalyan Ekta Sangathan' to maintain consistency."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteFooter.tsx",
+          "operation": "modify",
+          "description": "Review comments and any hardcoded text references to 'Jan Kalyan Sangathan' and update them to 'Jan Kalyan Ekta Sangathan' for consistency."
+        },
+        {
+          "path": "frontend/src/components/sections/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Review comments and text content for any references to 'Jan Kalyan Sangathan' and update them to 'Jan Kalyan Ekta Sangathan'."
         }
       ]
     }

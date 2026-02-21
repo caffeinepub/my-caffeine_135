@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 9,
+  "projectStateVersion": 11,
   "summary": "Build an NGO-related website for “डिजिटल भारत एकता संगठन” with provided Hindi welcome message, mission statement, goals, and values.",
   "architectural_notes": [],
   "known_issues": [
@@ -103,6 +103,30 @@
         "REQ-12"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-update-the-organization-name-in-frontend-src-content-hi-ts-from-to-2",
+      "title": "Update the organization name in frontend/src/content/hi.ts from 'जन कल्याण संगठन' to 'जन कल्याण एकता संगठन'",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-english-transliteration-in-frontend-index-html-title-from-jan-kalyan-sangathan-to-jan-kalyan-ekta-sangathan",
+      "title": "Update the English transliteration in frontend/index.html title from 'Jan Kalyan Sangathan' to 'Jan Kalyan Ekta Sangathan'",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-any-romanized-references-in-comments-or-documentation-from-jan-kalyan-sangathan-to-jan-kalyan-ekta-sangathan-to-maintain-consistency",
+      "title": "Update any romanized references in comments or documentation from 'Jan Kalyan Sangathan' to 'Jan Kalyan Ekta Sangathan' to maintain consistency",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -133,6 +157,12 @@
     {
       "id": "AR-5",
       "summary": "Add a member registration option (member signup/registration UI).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Update organization name to 'जन कल्याण एकता संगठन' in Hindi content",
       "reqIds": [],
       "status": "pending"
     }
