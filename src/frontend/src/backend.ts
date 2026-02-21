@@ -89,10 +89,377 @@ export class ExternalBlob {
         return this;
     }
 }
-export interface backendInterface {
+export type Time = bigint;
+export interface Page {
+    members: Array<Member>;
+    totalCount: bigint;
+    offset: bigint;
+    limit: bigint;
 }
+export interface RegistrationFields {
+    name: string;
+    districtOrState: string;
+    email: string;
+    message: string;
+    phone: string;
+}
+export type MemberId = bigint;
+export interface Member {
+    id: MemberId;
+    status: MemberStatus;
+    name: string;
+    createdAt: Time;
+    districtOrState: string;
+    email: string;
+    updatedAt: Time;
+    message: string;
+    phone: string;
+}
+export enum MemberStatus {
+    active = "active",
+    pending = "pending",
+    inactive = "inactive"
+}
+export enum UserRole {
+    admin = "admin",
+    user = "user",
+    guest = "guest"
+}
+export interface backendInterface {
+    _initializeAccessControlWithSecret(userSecret: string): Promise<void>;
+    assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
+    deleteMember(memberId: MemberId): Promise<void>;
+    getAllMembers(): Promise<Array<Member>>;
+    getCallerUserRole(): Promise<UserRole>;
+    getMemberCount(): Promise<bigint>;
+    getMembersPage(offset: bigint, limit: bigint): Promise<Page>;
+    getMembersRegisteredThisMonth(): Promise<Array<Member>>;
+    getMembersRegisteredThisWeek(): Promise<Array<Member>>;
+    getMembersRegisteredToday(): Promise<Array<Member>>;
+    isCallerAdmin(): Promise<boolean>;
+    registerMember(fields: RegistrationFields): Promise<MemberId>;
+    updateMember(memberId: MemberId, fields: RegistrationFields): Promise<void>;
+    updateMemberStatus(memberId: MemberId, status: MemberStatus): Promise<void>;
+}
+import type { Member as _Member, MemberId as _MemberId, MemberStatus as _MemberStatus, Page as _Page, Time as _Time, UserRole as _UserRole } from "./declarations/backend.did.d.ts";
 export class Backend implements backendInterface {
     constructor(private actor: ActorSubclass<_SERVICE>, private _uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, private _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, private processError?: (error: unknown) => never){}
+    async _initializeAccessControlWithSecret(arg0: string): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor._initializeAccessControlWithSecret(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor._initializeAccessControlWithSecret(arg0);
+            return result;
+        }
+    }
+    async assignCallerUserRole(arg0: Principal, arg1: UserRole): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.assignCallerUserRole(arg0, to_candid_UserRole_n1(this._uploadFile, this._downloadFile, arg1));
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.assignCallerUserRole(arg0, to_candid_UserRole_n1(this._uploadFile, this._downloadFile, arg1));
+            return result;
+        }
+    }
+    async deleteMember(arg0: MemberId): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.deleteMember(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.deleteMember(arg0);
+            return result;
+        }
+    }
+    async getAllMembers(): Promise<Array<Member>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getAllMembers();
+                return from_candid_vec_n3(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getAllMembers();
+            return from_candid_vec_n3(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getCallerUserRole(): Promise<UserRole> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getCallerUserRole();
+                return from_candid_UserRole_n8(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getCallerUserRole();
+            return from_candid_UserRole_n8(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getMemberCount(): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getMemberCount();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getMemberCount();
+            return result;
+        }
+    }
+    async getMembersPage(arg0: bigint, arg1: bigint): Promise<Page> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getMembersPage(arg0, arg1);
+                return from_candid_Page_n10(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getMembersPage(arg0, arg1);
+            return from_candid_Page_n10(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getMembersRegisteredThisMonth(): Promise<Array<Member>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getMembersRegisteredThisMonth();
+                return from_candid_vec_n3(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getMembersRegisteredThisMonth();
+            return from_candid_vec_n3(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getMembersRegisteredThisWeek(): Promise<Array<Member>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getMembersRegisteredThisWeek();
+                return from_candid_vec_n3(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getMembersRegisteredThisWeek();
+            return from_candid_vec_n3(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getMembersRegisteredToday(): Promise<Array<Member>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getMembersRegisteredToday();
+                return from_candid_vec_n3(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getMembersRegisteredToday();
+            return from_candid_vec_n3(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async isCallerAdmin(): Promise<boolean> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.isCallerAdmin();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.isCallerAdmin();
+            return result;
+        }
+    }
+    async registerMember(arg0: RegistrationFields): Promise<MemberId> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.registerMember(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.registerMember(arg0);
+            return result;
+        }
+    }
+    async updateMember(arg0: MemberId, arg1: RegistrationFields): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.updateMember(arg0, arg1);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.updateMember(arg0, arg1);
+            return result;
+        }
+    }
+    async updateMemberStatus(arg0: MemberId, arg1: MemberStatus): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.updateMemberStatus(arg0, to_candid_MemberStatus_n12(this._uploadFile, this._downloadFile, arg1));
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.updateMemberStatus(arg0, to_candid_MemberStatus_n12(this._uploadFile, this._downloadFile, arg1));
+            return result;
+        }
+    }
+}
+function from_candid_MemberStatus_n6(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _MemberStatus): MemberStatus {
+    return from_candid_variant_n7(_uploadFile, _downloadFile, value);
+}
+function from_candid_Member_n4(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _Member): Member {
+    return from_candid_record_n5(_uploadFile, _downloadFile, value);
+}
+function from_candid_Page_n10(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _Page): Page {
+    return from_candid_record_n11(_uploadFile, _downloadFile, value);
+}
+function from_candid_UserRole_n8(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _UserRole): UserRole {
+    return from_candid_variant_n9(_uploadFile, _downloadFile, value);
+}
+function from_candid_record_n11(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+    members: Array<_Member>;
+    totalCount: bigint;
+    offset: bigint;
+    limit: bigint;
+}): {
+    members: Array<Member>;
+    totalCount: bigint;
+    offset: bigint;
+    limit: bigint;
+} {
+    return {
+        members: from_candid_vec_n3(_uploadFile, _downloadFile, value.members),
+        totalCount: value.totalCount,
+        offset: value.offset,
+        limit: value.limit
+    };
+}
+function from_candid_record_n5(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+    id: _MemberId;
+    status: _MemberStatus;
+    name: string;
+    createdAt: _Time;
+    districtOrState: string;
+    email: string;
+    updatedAt: _Time;
+    message: string;
+    phone: string;
+}): {
+    id: MemberId;
+    status: MemberStatus;
+    name: string;
+    createdAt: Time;
+    districtOrState: string;
+    email: string;
+    updatedAt: Time;
+    message: string;
+    phone: string;
+} {
+    return {
+        id: value.id,
+        status: from_candid_MemberStatus_n6(_uploadFile, _downloadFile, value.status),
+        name: value.name,
+        createdAt: value.createdAt,
+        districtOrState: value.districtOrState,
+        email: value.email,
+        updatedAt: value.updatedAt,
+        message: value.message,
+        phone: value.phone
+    };
+}
+function from_candid_variant_n7(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+    active: null;
+} | {
+    pending: null;
+} | {
+    inactive: null;
+}): MemberStatus {
+    return "active" in value ? MemberStatus.active : "pending" in value ? MemberStatus.pending : "inactive" in value ? MemberStatus.inactive : value;
+}
+function from_candid_variant_n9(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+    admin: null;
+} | {
+    user: null;
+} | {
+    guest: null;
+}): UserRole {
+    return "admin" in value ? UserRole.admin : "user" in value ? UserRole.user : "guest" in value ? UserRole.guest : value;
+}
+function from_candid_vec_n3(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<_Member>): Array<Member> {
+    return value.map((x)=>from_candid_Member_n4(_uploadFile, _downloadFile, x));
+}
+function to_candid_MemberStatus_n12(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: MemberStatus): _MemberStatus {
+    return to_candid_variant_n13(_uploadFile, _downloadFile, value);
+}
+function to_candid_UserRole_n1(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: UserRole): _UserRole {
+    return to_candid_variant_n2(_uploadFile, _downloadFile, value);
+}
+function to_candid_variant_n13(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: MemberStatus): {
+    active: null;
+} | {
+    pending: null;
+} | {
+    inactive: null;
+} {
+    return value == MemberStatus.active ? {
+        active: null
+    } : value == MemberStatus.pending ? {
+        pending: null
+    } : value == MemberStatus.inactive ? {
+        inactive: null
+    } : value;
+}
+function to_candid_variant_n2(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: UserRole): {
+    admin: null;
+} | {
+    user: null;
+} | {
+    guest: null;
+} {
+    return value == UserRole.admin ? {
+        admin: null
+    } : value == UserRole.user ? {
+        user: null
+    } : value == UserRole.guest ? {
+        guest: null
+    } : value;
 }
 export interface CreateActorOptions {
     agent?: Agent;

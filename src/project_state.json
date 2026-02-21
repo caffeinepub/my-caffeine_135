@@ -1,12 +1,13 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 11,
+  "projectStateVersion": 17,
   "summary": "Build an NGO-related website for “डिजिटल भारत एकता संगठन” with provided Hindi welcome message, mission statement, goals, and values.",
   "architectural_notes": [],
   "known_issues": [
-    "Production deployment domain validation error when using Hindi/Devanagari characters in domain name (must be 5–50 chars, only letters/numbers/hyphens)."
+    "Production deployment domain validation error when using Hindi/Devanagari characters in domain name (must be 5–50 chars, only letters/numbers/hyphens).",
+    "Version 7 deployment resulted in a completely blank website (production build issue or runtime error preventing React app from rendering)."
   ],
-  "isFixRequest": false,
+  "isFixRequest": true,
   "existing_features": [
     {
       "id": "feature-create-a-responsive-ngo-website-single-page-or-simple-multi-section-layout-for-digital-bharat-ekta-sangathan-with-clear-navigation-to-key-sections-welcome-mission-what-we-do-goal-values-and-contact",
@@ -127,6 +128,150 @@
         "REQ-15"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-create-react-query-hooks-in-frontend-src-hooks-usequeries-ts-for-member-registration-submission-and-fetching-member-statistics",
+      "title": "Create React Query hooks in frontend/src/hooks/useQueries.ts for member registration submission and fetching member statistics",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-memberregistrationsection-component-to-integrate-with-backend-submit-form-data-to-backend-display-success-confirmation-with-member-id-show-error-messages-and-remove-the-submissions-not-saved-disclaimer",
+      "title": "Update MemberRegistrationSection component to integrate with backend: submit form data to backend, display success confirmation with member ID, show error messages, and remove the 'submissions not saved' disclaimer",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-success-confirmation-message-in-hindi-to-content-hi-ts-for-member-registration-that-includes-placeholders-for-member-id-and-confirmation-text",
+      "title": "Add a success confirmation message in Hindi to content/hi.ts for member registration that includes placeholders for member ID and confirmation text",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-password-protected-admin-dashboard-page-at-admin-route-that-displays-registered-members-in-a-table-format-with-columns-for-member-id-name-email-phone-number-district-state-and-registration-date",
+      "title": "Create a password-protected admin dashboard page at /admin route that displays registered members in a table format with columns for member ID, name, email, phone number, district/state, and registration date",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-search-and-filter-functionality-in-the-admin-dashboard-to-allow-filtering-members-by-name-email-phone-number-district-or-state",
+      "title": "Implement search and filter functionality in the admin dashboard to allow filtering members by name, email, phone number, district, or state",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-export-functionality-to-the-admin-dashboard-that-allows-downloading-member-data-as-csv-file-with-all-registration-fields",
+      "title": "Add export functionality to the admin dashboard that allows downloading member data as CSV file with all registration fields",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-registration-statistics-in-the-admin-dashboard-showing-total-member-count-members-registered-today-members-registered-this-week-and-members-registered-this-month",
+      "title": "Display registration statistics in the admin dashboard showing total member count, members registered today, members registered this week, and members registered this month",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-member-management-panel-to-the-admin-dashboard-with-functionality-to-edit-member-records-including-name-email-phone-number-district-state-and-message-fields",
+      "title": "Add member management panel to the admin dashboard with functionality to edit member records including name, email, phone number, district/state, and message fields",
+      "reqIds": [
+        "REQ-29"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-delete-functionality-to-the-admin-dashboard-allowing-administrators-to-remove-member-records-with-confirmation-dialog-before-deletion",
+      "title": "Add delete functionality to the admin dashboard allowing administrators to remove member records with confirmation dialog before deletion",
+      "reqIds": [
+        "REQ-31"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-bulk-notification-feature-to-the-admin-dashboard-with-ability-to-compose-and-send-messages-to-selected-members-or-all-members",
+      "title": "Add bulk notification feature to the admin dashboard with ability to compose and send messages to selected members or all members",
+      "reqIds": [
+        "REQ-33"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-status-management-controls-to-the-admin-dashboard-allowing-administrators-to-change-member-status-between-active-inactive-and-pending-with-dropdown-selection",
+      "title": "Add status management controls to the admin dashboard allowing administrators to change member status between 'active', 'inactive', and 'pending' with dropdown selection",
+      "reqIds": [
+        "REQ-35"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-react-query-hooks-in-frontend-src-hooks-usequeries-ts-for-admin-operations-including-updatemember-mutation-deletemember-mutation-and-time-based-statistics-queries",
+      "title": "Create React Query hooks in frontend/src/hooks/useQueries.ts for admin operations including updateMember mutation, deleteMember mutation, and time-based statistics queries",
+      "reqIds": [
+        "REQ-36"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-pagination-controls-in-the-admin-dashboard-to-handle-large-numbers-of-members-with-configurable-page-size-and-page-navigation",
+      "title": "Implement pagination controls in the admin dashboard to handle large numbers of members with configurable page size and page navigation",
+      "reqIds": [
+        "REQ-37"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-investigate-and-fix-the-root-cause-of-the-blank-page-in-production-by-checking-for-runtime-errors-in-the-react-application-ensuring-all-imports-and-dependencies-are-correctly-resolved-and-verifying-that-the-root-element-mounting-in-frontend-src-main-tsx-is-working-properly",
+      "title": "Investigate and fix the root cause of the blank page in production by checking for runtime errors in the React application, ensuring all imports and dependencies are correctly resolved, and verifying that the root element mounting in frontend/src/main.tsx is working properly",
+      "reqIds": [
+        "REQ-38"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-verify-that-frontend-src-app-tsx-correctly-configures-tanstack-router-with-both-the-home-and-admin-admin-routes-and-that-the-routerprovider-is-properly-wrapped-with-queryclientprovider",
+      "title": "Verify that frontend/src/App.tsx correctly configures TanStack Router with both the home (/) and admin (/admin) routes and that the RouterProvider is properly wrapped with QueryClientProvider",
+      "reqIds": [
+        "REQ-39"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-all-component-imports-in-frontend-src-pages-homepage-tsx-and-frontend-src-pages-admindashboard-tsx-resolve-correctly-and-that-no-circular-dependencies-or-missing-modules-cause-the-application-to-fail",
+      "title": "Ensure all component imports in frontend/src/pages/HomePage.tsx and frontend/src/pages/AdminDashboard.tsx resolve correctly and that no circular dependencies or missing modules cause the application to fail",
+      "reqIds": [
+        "REQ-40"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-verify-that-the-backend-actor-initialization-in-frontend-src-hooks-useactor-ts-completes-successfully-and-does-not-block-the-application-from-rendering-if-the-actor-creation-fails-or-is-pending",
+      "title": "Verify that the backend actor initialization in frontend/src/hooks/useActor.ts completes successfully and does not block the application from rendering if the actor creation fails or is pending",
+      "reqIds": [
+        "REQ-41"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-error-boundary-component-to-catch-and-display-react-rendering-errors-instead-of-showing-a-blank-page-with-a-user-friendly-error-message-and-option-to-reload-the-page",
+      "title": "Add error boundary component to catch and display React rendering errors instead of showing a blank page, with a user-friendly error message and option to reload the page",
+      "reqIds": [
+        "REQ-42"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -164,6 +309,96 @@
       "id": "AR-6",
       "summary": "Update organization name to 'जन कल्याण एकता संगठन' in Hindi content",
       "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Add backend functionality to member registration form: save member data securely, send confirmation messages, enable member database management and authentication/login.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Create a Motoko backend data model to store member registration information including name, phone number, email, district/state, and message fields with appropriate data types and timestamps",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Implement a backend method to register new members that accepts member details, validates required fields, generates unique member ID, stores the data, and returns confirmation with the member ID",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Implement a backend method to retrieve all registered members with pagination support for administrative access",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Implement a backend method to retrieve member count for dashboard statistics",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Generate migration.mo to handle upgrade from empty backend state to new member storage structure",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Create password-protected admin dashboard page to view registered members in a table, search/filter members, export member data, and display registration statistics",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Add member management panel with features to edit/delete member records, send bulk notifications, and track member status",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-22",
+      "summary": "Implement backend query methods to support time-based member statistics: getMembersRegisteredToday, getMembersRegisteredThisWeek, and getMembersRegisteredThisMonth",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-24",
+      "summary": "Implement backend update method to modify existing member records by member ID with validation to ensure member exists before updating",
+      "reqIds": [
+        "REQ-30"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-26",
+      "summary": "Implement backend delete method to remove member records by member ID from storage",
+      "reqIds": [
+        "REQ-32"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-28",
+      "summary": "Add member status tracking to the registration data model with status field supporting values: 'active', 'inactive', 'pending'",
+      "reqIds": [
+        "REQ-34"
+      ],
       "status": "pending"
     }
   ],

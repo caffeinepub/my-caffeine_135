@@ -8,10 +8,120 @@
 
 import { IDL } from '@icp-sdk/core/candid';
 
-export const idlService = IDL.Service({});
+export const UserRole = IDL.Variant({
+  'admin' : IDL.Null,
+  'user' : IDL.Null,
+  'guest' : IDL.Null,
+});
+export const MemberId = IDL.Nat;
+export const MemberStatus = IDL.Variant({
+  'active' : IDL.Null,
+  'pending' : IDL.Null,
+  'inactive' : IDL.Null,
+});
+export const Time = IDL.Int;
+export const Member = IDL.Record({
+  'id' : MemberId,
+  'status' : MemberStatus,
+  'name' : IDL.Text,
+  'createdAt' : Time,
+  'districtOrState' : IDL.Text,
+  'email' : IDL.Text,
+  'updatedAt' : Time,
+  'message' : IDL.Text,
+  'phone' : IDL.Text,
+});
+export const Page = IDL.Record({
+  'members' : IDL.Vec(Member),
+  'totalCount' : IDL.Nat,
+  'offset' : IDL.Nat,
+  'limit' : IDL.Nat,
+});
+export const RegistrationFields = IDL.Record({
+  'name' : IDL.Text,
+  'districtOrState' : IDL.Text,
+  'email' : IDL.Text,
+  'message' : IDL.Text,
+  'phone' : IDL.Text,
+});
+
+export const idlService = IDL.Service({
+  '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
+  'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
+  'deleteMember' : IDL.Func([MemberId], [], []),
+  'getAllMembers' : IDL.Func([], [IDL.Vec(Member)], ['query']),
+  'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
+  'getMemberCount' : IDL.Func([], [IDL.Nat], ['query']),
+  'getMembersPage' : IDL.Func([IDL.Nat, IDL.Nat], [Page], ['query']),
+  'getMembersRegisteredThisMonth' : IDL.Func([], [IDL.Vec(Member)], ['query']),
+  'getMembersRegisteredThisWeek' : IDL.Func([], [IDL.Vec(Member)], ['query']),
+  'getMembersRegisteredToday' : IDL.Func([], [IDL.Vec(Member)], ['query']),
+  'isCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
+  'registerMember' : IDL.Func([RegistrationFields], [MemberId], []),
+  'updateMember' : IDL.Func([MemberId, RegistrationFields], [], []),
+  'updateMemberStatus' : IDL.Func([MemberId, MemberStatus], [], []),
+});
 
 export const idlInitArgs = [];
 
-export const idlFactory = ({ IDL }) => { return IDL.Service({}); };
+export const idlFactory = ({ IDL }) => {
+  const UserRole = IDL.Variant({
+    'admin' : IDL.Null,
+    'user' : IDL.Null,
+    'guest' : IDL.Null,
+  });
+  const MemberId = IDL.Nat;
+  const MemberStatus = IDL.Variant({
+    'active' : IDL.Null,
+    'pending' : IDL.Null,
+    'inactive' : IDL.Null,
+  });
+  const Time = IDL.Int;
+  const Member = IDL.Record({
+    'id' : MemberId,
+    'status' : MemberStatus,
+    'name' : IDL.Text,
+    'createdAt' : Time,
+    'districtOrState' : IDL.Text,
+    'email' : IDL.Text,
+    'updatedAt' : Time,
+    'message' : IDL.Text,
+    'phone' : IDL.Text,
+  });
+  const Page = IDL.Record({
+    'members' : IDL.Vec(Member),
+    'totalCount' : IDL.Nat,
+    'offset' : IDL.Nat,
+    'limit' : IDL.Nat,
+  });
+  const RegistrationFields = IDL.Record({
+    'name' : IDL.Text,
+    'districtOrState' : IDL.Text,
+    'email' : IDL.Text,
+    'message' : IDL.Text,
+    'phone' : IDL.Text,
+  });
+  
+  return IDL.Service({
+    '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
+    'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
+    'deleteMember' : IDL.Func([MemberId], [], []),
+    'getAllMembers' : IDL.Func([], [IDL.Vec(Member)], ['query']),
+    'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
+    'getMemberCount' : IDL.Func([], [IDL.Nat], ['query']),
+    'getMembersPage' : IDL.Func([IDL.Nat, IDL.Nat], [Page], ['query']),
+    'getMembersRegisteredThisMonth' : IDL.Func(
+        [],
+        [IDL.Vec(Member)],
+        ['query'],
+      ),
+    'getMembersRegisteredThisWeek' : IDL.Func([], [IDL.Vec(Member)], ['query']),
+    'getMembersRegisteredToday' : IDL.Func([], [IDL.Vec(Member)], ['query']),
+    'isCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
+    'registerMember' : IDL.Func([RegistrationFields], [MemberId], []),
+    'updateMember' : IDL.Func([MemberId, RegistrationFields], [], []),
+    'updateMemberStatus' : IDL.Func([MemberId, MemberStatus], [], []),
+  });
+};
 
 export const init = ({ IDL }) => { return []; };

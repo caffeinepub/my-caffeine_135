@@ -10,7 +10,54 @@ import type { ActorMethod } from '@icp-sdk/core/agent';
 import type { IDL } from '@icp-sdk/core/candid';
 import type { Principal } from '@icp-sdk/core/principal';
 
-export interface _SERVICE {}
+export interface Member {
+  'id' : MemberId,
+  'status' : MemberStatus,
+  'name' : string,
+  'createdAt' : Time,
+  'districtOrState' : string,
+  'email' : string,
+  'updatedAt' : Time,
+  'message' : string,
+  'phone' : string,
+}
+export type MemberId = bigint;
+export type MemberStatus = { 'active' : null } |
+  { 'pending' : null } |
+  { 'inactive' : null };
+export interface Page {
+  'members' : Array<Member>,
+  'totalCount' : bigint,
+  'offset' : bigint,
+  'limit' : bigint,
+}
+export interface RegistrationFields {
+  'name' : string,
+  'districtOrState' : string,
+  'email' : string,
+  'message' : string,
+  'phone' : string,
+}
+export type Time = bigint;
+export type UserRole = { 'admin' : null } |
+  { 'user' : null } |
+  { 'guest' : null };
+export interface _SERVICE {
+  '_initializeAccessControlWithSecret' : ActorMethod<[string], undefined>,
+  'assignCallerUserRole' : ActorMethod<[Principal, UserRole], undefined>,
+  'deleteMember' : ActorMethod<[MemberId], undefined>,
+  'getAllMembers' : ActorMethod<[], Array<Member>>,
+  'getCallerUserRole' : ActorMethod<[], UserRole>,
+  'getMemberCount' : ActorMethod<[], bigint>,
+  'getMembersPage' : ActorMethod<[bigint, bigint], Page>,
+  'getMembersRegisteredThisMonth' : ActorMethod<[], Array<Member>>,
+  'getMembersRegisteredThisWeek' : ActorMethod<[], Array<Member>>,
+  'getMembersRegisteredToday' : ActorMethod<[], Array<Member>>,
+  'isCallerAdmin' : ActorMethod<[], boolean>,
+  'registerMember' : ActorMethod<[RegistrationFields], MemberId>,
+  'updateMember' : ActorMethod<[MemberId, RegistrationFields], undefined>,
+  'updateMemberStatus' : ActorMethod<[MemberId, MemberStatus], undefined>,
+}
 export declare const idlService: IDL.ServiceClass;
 export declare const idlInitArgs: IDL.Type[];
 export declare const idlFactory: IDL.InterfaceFactory;

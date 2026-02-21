@@ -1,30 +1,54 @@
-import { SiteHeader } from './components/layout/SiteHeader';
-import { SiteFooter } from './components/layout/SiteFooter';
-import { HeroSection } from './components/sections/HeroSection';
-import { WelcomeMissionSection } from './components/sections/WelcomeMissionSection';
-import { GoalSection } from './components/sections/GoalSection';
-import { OneRupeeSupportSection } from './components/sections/OneRupeeSupportSection';
-import { ValuesSection } from './components/sections/ValuesSection';
-import { MemberRegistrationSection } from './components/sections/MemberRegistrationSection';
-import { ContactSection } from './components/sections/ContactSection';
+import { RouterProvider, createRouter, createRootRoute, createRoute, Outlet } from '@tanstack/react-router';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from '@/components/ui/sonner';
+import { ErrorBoundary } from './components/ErrorBoundary';
+import HomePage from './pages/HomePage';
+import AdminDashboard from './pages/AdminDashboard';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
+
+// Create root route with Outlet to render child routes
+const rootRoute = createRootRoute({
+  component: () => (
+    <>
+      <Outlet />
+      <Toaster />
+    </>
+  ),
+});
+
+// Create home route
+const homeRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/',
+  component: HomePage,
+});
+
+// Create admin route
+const adminRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/admin',
+  component: AdminDashboard,
+});
+
+// Create router
+const routeTree = rootRoute.addChildren([homeRoute, adminRoute]);
+const router = createRouter({ routeTree });
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <SiteHeader />
-      <main className="flex-1">
-        <HeroSection />
-        <WelcomeMissionSection />
-        <GoalSection />
-        <OneRupeeSupportSection />
-        <ValuesSection />
-        <MemberRegistrationSection />
-        <ContactSection />
-      </main>
-      <SiteFooter />
-      <Toaster />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <ErrorBoundary>
+        <RouterProvider router={router} />
+      </ErrorBoundary>
+    </QueryClientProvider>
   );
 }
 

@@ -1,51 +1,76 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-21T01:40:56.889Z",
+  "generatedAt": "2026-02-21T03:24:40.888Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 3,
-    "implemented": 3,
+    "total": 5,
+    "implemented": 5,
     "items": [
       {
-        "id": "REQ-13",
-        "summary": "Update the organization name in frontend/src/content/hi.ts from 'जन कल्याण संगठन' to 'जन कल्याण एकता संगठन'",
+        "id": "REQ-38",
+        "summary": "Investigate and fix the root cause of the blank page in production by checking for runtime errors in the React application, ensuring all imports and dependencies are correctly resolved, and verifying that the root element mounting in frontend/src/main.tsx is working properly",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/content/hi.ts"
+          "frontend/src/main.tsx",
+          "frontend/src/App.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/content/hi.ts"
+          "frontend/src/App.tsx"
         ]
       },
       {
-        "id": "REQ-14",
-        "summary": "Update the English transliteration in frontend/index.html title from 'Jan Kalyan Sangathan' to 'Jan Kalyan Ekta Sangathan'",
+        "id": "REQ-39",
+        "summary": "Verify that frontend/src/App.tsx correctly configures TanStack Router with both the home (/) and admin (/admin) routes and that the RouterProvider is properly wrapped with QueryClientProvider",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/index.html"
+          "frontend/src/App.tsx"
         ],
         "matchedFiles": [
-          "frontend/index.html"
+          "frontend/src/App.tsx"
         ]
       },
       {
-        "id": "REQ-15",
-        "summary": "Update any romanized references in comments or documentation from 'Jan Kalyan Sangathan' to 'Jan Kalyan Ekta Sangathan' to maintain consistency",
+        "id": "REQ-40",
+        "summary": "Ensure all component imports in frontend/src/pages/HomePage.tsx and frontend/src/pages/AdminDashboard.tsx resolve correctly and that no circular dependencies or missing modules cause the application to fail",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/content/hi.ts",
-          "frontend/src/components/layout/SiteHeader.tsx",
-          "frontend/src/components/layout/SiteFooter.tsx",
-          "frontend/src/components/sections/HeroSection.tsx"
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/pages/AdminDashboard.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/content/hi.ts",
-          "frontend/src/components/layout/SiteHeader.tsx",
-          "frontend/src/components/layout/SiteFooter.tsx"
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/pages/AdminDashboard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-41",
+        "summary": "Verify that the backend actor initialization in frontend/src/hooks/useActor.ts completes successfully and does not block the application from rendering if the actor creation fails or is pending",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useActor.ts",
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/pages/AdminDashboard.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/pages/AdminDashboard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-42",
+        "summary": "Add error boundary component to catch and display React rendering errors instead of showing a blank page, with a user-friendly error message and option to reload the page",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/ErrorBoundary.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/ErrorBoundary.tsx",
+          "frontend/src/App.tsx"
         ]
       }
     ]
@@ -55,10 +80,10 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/index.html",
-    "frontend/src/components/layout/SiteFooter.tsx",
-    "frontend/src/components/layout/SiteHeader.tsx",
-    "frontend/src/content/hi.ts",
+    "frontend/src/App.tsx",
+    "frontend/src/components/ErrorBoundary.tsx",
+    "frontend/src/pages/AdminDashboard.tsx",
+    "frontend/src/pages/HomePage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

@@ -5,8 +5,10 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { UserPlus, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { UserPlus, CheckCircle2 } from 'lucide-react';
 import { toast } from 'sonner';
+import { useRegisterMember } from '@/hooks/useQueries';
+import { content } from '@/content/hi';
 
 export function MemberRegistrationSection() {
   const [formData, setFormData] = useState({
@@ -16,25 +18,32 @@ export function MemberRegistrationSection() {
     districtState: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [registeredMemberId, setRegisteredMemberId] = useState<bigint | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const registerMutation = useRegisterMember();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Client-side validation
     if (!formData.fullName || !formData.phone || !formData.districtState || !formData.message) {
-      toast.error('Please fill in all required fields');
+      toast.error('कृपया सभी आवश्यक फ़ील्ड भरें');
       return;
     }
 
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const memberId = await registerMutation.mutateAsync({
+        name: formData.fullName,
+        phone: formData.phone,
+        email: formData.email,
+        districtOrState: formData.districtState,
+        message: formData.message
+      });
+
+      setRegisteredMemberId(memberId);
       setShowSuccess(true);
-      toast.success('Thank you for registering! We will contact you soon.');
+      toast.success(content.memberRegistrationSuccess(memberId.toString()));
       
       // Reset form
       setFormData({
@@ -45,9 +54,15 @@ export function MemberRegistrationSection() {
         message: ''
       });
 
-      // Hide success message after 5 seconds
-      setTimeout(() => setShowSuccess(false), 5000);
-    }, 1000);
+      // Hide success message after 8 seconds
+      setTimeout(() => {
+        setShowSuccess(false);
+        setRegisteredMemberId(null);
+      }, 8000);
+    } catch (error) {
+      console.error('Registration error:', error);
+      toast.error('पंजीकरण में त्रुटि हुई। कृपया पुनः प्रयास करें।');
+    }
   };
 
   return (
@@ -61,29 +76,29 @@ export function MemberRegistrationSection() {
               </div>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              Member Registration
+              सदस्य पंजीकरण
             </h2>
             <p className="text-lg text-muted-foreground">
-              Join our organization and become part of a movement for unity, transparency, and justice.
+              हमारे संगठन में शामिल हों और एकता, पारदर्शिता और न्याय के आंदोलन का हिस्सा बनें।
             </p>
           </div>
 
           <Card>
             <CardHeader>
-              <CardTitle>Register as a Member</CardTitle>
+              <CardTitle>सदस्य के रूप में पंजीकरण करें</CardTitle>
               <CardDescription>
-                Fill in your details below to join our organization
+                हमारे संगठन में शामिल होने के लिए नीचे अपना विवरण भरें
               </CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="fullName">
-                    Full Name <span className="text-destructive">*</span>
+                    पूरा नाम <span className="text-destructive">*</span>
                   </Label>
                   <Input
                     id="fullName"
-                    placeholder="Enter your full name"
+                    placeholder="अपना पूरा नाम दर्ज करें"
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                     required
@@ -93,7 +108,7 @@ export function MemberRegistrationSection() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="phone">
-                      Phone Number <span className="text-destructive">*</span>
+                      फोन नंबर <span className="text-destructive">*</span>
                     </Label>
                     <Input
                       id="phone"
@@ -106,7 +121,7 @@ export function MemberRegistrationSection() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email (Optional)</Label>
+                    <Label htmlFor="email">ईमेल (वैकल्पिक)</Label>
                     <Input
                       id="email"
                       type="email"
@@ -119,11 +134,11 @@ export function MemberRegistrationSection() {
 
                 <div className="space-y-2">
                   <Label htmlFor="districtState">
-                    District / State <span className="text-destructive">*</span>
+                    जिला / राज्य <span className="text-destructive">*</span>
                   </Label>
                   <Input
                     id="districtState"
-                    placeholder="Enter your district and state"
+                    placeholder="अपना जिला और राज्य दर्ज करें"
                     value={formData.districtState}
                     onChange={(e) => setFormData({ ...formData, districtState: e.target.value })}
                     required
@@ -132,11 +147,11 @@ export function MemberRegistrationSection() {
 
                 <div className="space-y-2">
                   <Label htmlFor="message">
-                    Why do you want to join? <span className="text-destructive">*</span>
+                    आप क्यों शामिल होना चाहते हैं? <span className="text-destructive">*</span>
                   </Label>
                   <Textarea
                     id="message"
-                    placeholder="Tell us why you want to become a member..."
+                    placeholder="हमें बताएं कि आप सदस्य क्यों बनना चाहते हैं..."
                     rows={5}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -144,19 +159,11 @@ export function MemberRegistrationSection() {
                   />
                 </div>
 
-                <Alert className="bg-muted border-muted-foreground/20">
-                  <AlertCircle className="h-4 w-4" />
-                  <AlertDescription className="text-sm">
-                    <strong>Note:</strong> This is a demo form. Submissions are not currently delivered or stored. 
-                    Please use the contact information to reach us directly.
-                  </AlertDescription>
-                </Alert>
-
-                {showSuccess && (
+                {showSuccess && registeredMemberId && (
                   <Alert className="bg-primary/10 border-primary">
                     <CheckCircle2 className="h-4 w-4 text-primary" />
                     <AlertDescription className="text-primary">
-                      Your registration has been received! We will contact you soon.
+                      {content.memberRegistrationSuccess(registeredMemberId.toString())}
                     </AlertDescription>
                   </Alert>
                 )}
@@ -165,9 +172,9 @@ export function MemberRegistrationSection() {
                   type="submit"
                   size="lg"
                   className="w-full"
-                  disabled={isSubmitting}
+                  disabled={registerMutation.isPending}
                 >
-                  {isSubmitting ? 'Submitting...' : 'Register Now'}
+                  {registerMutation.isPending ? 'सबमिट हो रहा है...' : 'अभी पंजीकरण करें'}
                 </Button>
               </form>
             </CardContent>

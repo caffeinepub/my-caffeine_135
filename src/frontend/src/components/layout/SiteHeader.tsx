@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Shield } from 'lucide-react';
+import { useNavigate } from '@tanstack/react-router';
 import { Button } from '@/components/ui/button';
 import { content } from '@/content/hi';
 
 export function SiteHeader() {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -81,6 +83,14 @@ export function SiteHeader() {
                 {item.label}
               </Button>
             ))}
+            <Button
+              variant="outline"
+              onClick={() => navigate({ to: '/admin' })}
+              className="ml-2 gap-2"
+            >
+              <Shield className="h-4 w-4" />
+              Admin
+            </Button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -108,6 +118,17 @@ export function SiteHeader() {
                 {item.label}
               </Button>
             ))}
+            <Button
+              variant="outline"
+              onClick={() => {
+                navigate({ to: '/admin' });
+                setIsMenuOpen(false);
+              }}
+              className="w-full justify-start gap-2"
+            >
+              <Shield className="h-4 w-4" />
+              Admin Dashboard
+            </Button>
           </nav>
         )}
       </div>

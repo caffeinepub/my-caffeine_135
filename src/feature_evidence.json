@@ -2,58 +2,100 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-organization-name-in-frontend-src-content-hi-ts-from-to-2",
-      "featureTitle": "Update the organization name in frontend/src/content/hi.ts from 'जन कल्याण संगठन' to 'जन कल्याण एकता संगठन'",
+      "featureId": "feature-investigate-and-fix-the-root-cause-of-the-blank-page-in-production-by-checking-for-runtime-errors-in-the-react-application-ensuring-all-imports-and-dependencies-are-correctly-resolved-and-verifying-that-the-root-element-mounting-in-frontend-src-main-tsx-is-working-properly",
+      "featureTitle": "Investigate and fix the root cause of the blank page in production by checking for runtime errors in the React application, ensuring all imports and dependencies are correctly resolved, and verifying that the root element mounting in frontend/src/main.tsx is working properly",
       "files": [
-        "frontend/src/content/hi.ts"
+        "frontend/src/App.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
         "build-template-react@1.0.0",
         "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
       ],
       "testIds": [
-        "REQ-13"
+        "REQ-38"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-the-english-transliteration-in-frontend-index-html-title-from-jan-kalyan-sangathan-to-jan-kalyan-ekta-sangathan",
-      "featureTitle": "Update the English transliteration in frontend/index.html title from 'Jan Kalyan Sangathan' to 'Jan Kalyan Ekta Sangathan'",
+      "featureId": "feature-verify-that-frontend-src-app-tsx-correctly-configures-tanstack-router-with-both-the-home-and-admin-admin-routes-and-that-the-routerprovider-is-properly-wrapped-with-queryclientprovider",
+      "featureTitle": "Verify that frontend/src/App.tsx correctly configures TanStack Router with both the home (/) and admin (/admin) routes and that the RouterProvider is properly wrapped with QueryClientProvider",
       "files": [
-        "frontend/index.html"
+        "frontend/src/App.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
         "build-template-react@1.0.0",
         "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
       ],
       "testIds": [
-        "REQ-14"
+        "REQ-39"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-any-romanized-references-in-comments-or-documentation-from-jan-kalyan-sangathan-to-jan-kalyan-ekta-sangathan-to-maintain-consistency",
-      "featureTitle": "Update any romanized references in comments or documentation from 'Jan Kalyan Sangathan' to 'Jan Kalyan Ekta Sangathan' to maintain consistency",
+      "featureId": "feature-ensure-all-component-imports-in-frontend-src-pages-homepage-tsx-and-frontend-src-pages-admindashboard-tsx-resolve-correctly-and-that-no-circular-dependencies-or-missing-modules-cause-the-application-to-fail",
+      "featureTitle": "Ensure all component imports in frontend/src/pages/HomePage.tsx and frontend/src/pages/AdminDashboard.tsx resolve correctly and that no circular dependencies or missing modules cause the application to fail",
       "files": [
-        "frontend/src/components/layout/SiteFooter.tsx",
-        "frontend/src/components/layout/SiteHeader.tsx",
-        "frontend/src/content/hi.ts"
+        "frontend/src/pages/AdminDashboard.tsx",
+        "frontend/src/pages/HomePage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
         "build-template-react@1.0.0",
         "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
       ],
       "testIds": [
-        "REQ-15"
+        "REQ-40"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-verify-that-the-backend-actor-initialization-in-frontend-src-hooks-useactor-ts-completes-successfully-and-does-not-block-the-application-from-rendering-if-the-actor-creation-fails-or-is-pending",
+      "featureTitle": "Verify that the backend actor initialization in frontend/src/hooks/useActor.ts completes successfully and does not block the application from rendering if the actor creation fails or is pending",
+      "files": [
+        "frontend/src/pages/AdminDashboard.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-41"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-error-boundary-component-to-catch-and-display-react-rendering-errors-instead-of-showing-a-blank-page-with-a-user-friendly-error-message-and-option-to-reload-the-page",
+      "featureTitle": "Add error boundary component to catch and display React rendering errors instead of showing a blank page, with a user-friendly error message and option to reload the page",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ErrorBoundary.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-42"
       ],
       "confidence": "high"
     }
